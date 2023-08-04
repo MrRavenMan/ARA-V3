@@ -1,0 +1,15 @@
+{
+    "TOKEN": "MTEzNzAxMzQ1ODY0MzE4OTg4MA.Gql9oS.GfctHLMUr3mY1iERF-viDekMilHT36KsVo3CtA",
+    "GUILD_ID": "950369844182806558",
+    "BOT_ID": "1137013458643189880",
+    "status": 4,
+    "status_msg": "The Olympics",
+    "status_streaming_url": "https://www.twitch.tv/example",
+
+    "bot_info_channel_id": "950372543079018547",
+    "join_leave_channel_id": "950372543079018547",
+    "manage_all": "RoleNameOfRoleTOContoleAllCommands",
+    "manage_test": "Role Name To Use This Command Only",
+    "manage_close": "Role Name To Use This Command Only",
+    "manage_msg": "Role Name To Use This Command Only"
+}
