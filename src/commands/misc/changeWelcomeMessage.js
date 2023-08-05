@@ -33,7 +33,7 @@ module.exports = {
             const fileName = basePath + '/config/config.json';
             const file = require(fileName);
             file.welcomeMsg = targetMessage.content;
-            fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
+            fs.writeFile(fileName, JSON.stringify(file, null, 4), function writeJSON(err) {
             if (err) return console.log(err);
             console.log('Wrting to file:  ' + fileName);
             });

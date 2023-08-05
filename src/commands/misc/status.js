@@ -1,4 +1,4 @@
-const { ApplicationCommandOptionType, PermissionFlagsBits } = require('discord.js')
+const { ApplicationCommandOptionType, PermissionFlagsBits, ActivityType } = require('discord.js')
 
 module.exports = {
     name: 'set-status',
@@ -10,18 +10,81 @@ module.exports = {
             type: ApplicationCommandOptionType.Number,
             required: true,
             choices: [
-                // Add things here
+                {
+                    name: 'Streaming',
+                    value: 0
+                },
+                {
+                    name: 'Watching',
+                    value: 1
+                },
+                {
+                    name: 'Listening',
+                    value: 2
+                },
+                {
+                    name: 'Competing',
+                    value: 3
+                },
+                {
+                    name: 'Playing',
+                    value: 4
+                }
             ]
+
+        },
+        {
+            name: 'message',
+            description: 'The message you want to be set for the status.',
+            type: ApplicationCommandOptionType.String,
+            required: true,
+        },
+        {
+            name: 'url',
+            description: 'Only for the Streaming status.',
+            type: ApplicationCommandOptionType.String,
+            required: false,
         }
     ],
     permissionsRequired: [],
     botPermissions: [],
     devOnly: false,
     testOnly: false,
-    deleted: true,
+    deleted: false,
 
     callback: (client, interaction) => {
         try {
+            const statusList = [
+                {
+                    name: '',
+                    type: ActivityType.Streaming,
+                    url: '',
+                },
+                {
+                    name: '',
+                    type: ActivityType.Watching,
+                },
+                {
+                    name: '',
+                    type: ActivityType.Listening,
+                },
+                {
+                    name: '',
+                    type: ActivityType.Competing,
+                },
+                {
+                    name: '',
+                    type: ActivityType.Playing,
+                }
+
+            ]
+
+            let status = statusList[interaction.options.get('status').value];
+            status.name = interaction.options.get('message').value;
+            if (interaction.options.get('status').value === 0) {
+                status.url = interaction.options.get('url').value;
+            }
+            client.user.setActivity()
             interaction.reply({
                 content: "Status was changed",
                 ephemeral: true,

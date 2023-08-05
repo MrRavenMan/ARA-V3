@@ -41,7 +41,7 @@ module.exports = {
                     .setStyle(ButtonStyle.Danger)
             );
             targetChannel.send({
-                content: `**This role is for the <@&${role.id}> of the community.**`,
+                content: `Here you can assign/unassign the **<@&${role.name}**`,
                 components: [row]
             })
             

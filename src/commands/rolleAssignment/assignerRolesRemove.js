@@ -50,9 +50,9 @@ module.exports = {
             }
             
             // Save config file
-            fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
+            fs.writeFile(fileName, JSON.stringify(file, null, 4), function writeJSON(err) {
             if (err) return console.log(err);
-            console.log(JSON.stringify(file));
+            console.log(JSON.stringify(file, null, 4));
             console.log('Wrting to file:  ' + fileName);
             });
 
