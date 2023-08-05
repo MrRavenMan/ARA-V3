@@ -1,4 +1,4 @@
-const { TEST_SERVER_ID } = require('../../config/config.json')
+const { testServerID } = require('../../config/config.json')
 const getLocalCommands = require('../../utils/getLocalCommands.js')
 
 
@@ -22,7 +22,7 @@ module.exports = async (client, interaction) => {
         }
 
         if (commandObject.testOnly) {
-            if (!(interaction.guild.id === TEST_SERVER_ID)) {
+            if (!(interaction.guild.id === testServerID)) {
                 interaction.reply({
                     content: "Only developers are allowed to run this command.",
                     ephemeral: true,

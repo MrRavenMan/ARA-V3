@@ -1,4 +1,6 @@
 const CONFIG = require('../../config/config.json');
+const path = require('path')
+const fs = require('fs');
 const { ApplicationCommandOptionType, PermissionFlagsBits } = require('discord.js')
 
 module.exports = {
@@ -15,7 +17,7 @@ module.exports = {
     botPermissions: [PermissionFlagsBits.SendMessages, PermissionFlagsBits.ManageMessages],
     devOnly: false,
     testOnly: false,
-    deleted: true,
+    deleted: false,
 
     callback: (client, interaction) => {
         try {
@@ -25,17 +27,28 @@ module.exports = {
             } catch (error) {
                 
             }
-            targetChannel.send(targetMessage.content);
+
+            const basePath = path.resolve(__dirname, '../..')
+            const fileName = basePath + '/config/config.json';
+            console.log(fileName)
+            const file = require(fileName);
+            file.welcomeMsg = targetMessage.content;
+            fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
+            if (err) return console.log(err);
+            console.log(JSON.stringify(file));
+            console.log('writing to ' + fileName);
+            });
+
             targetMessage.delete();
-            interaction.reply(`Message posted in <#${targetChannel.id}>!`)
+            interaction.reply(`Welcome message has been updated!`)
             setTimeout(() => {
                 interaction.deleteReply();
                 }, "5000");
               
             } catch (error) {
-                console.log(`An error orcurred during execution of /message. Error: ${error}. Error likely orccurred due to the message being older than the bot. `);
+                console.log(`An error orcurred during execution of /set-welcome-message. Error: ${error}. `);
                 interaction.reply({
-                    content: "An error orcurred during execution of /message. This error likely orcurred due to message being older than bot session. Please post a newer message. This command must also be executed in same channel as the original message.",
+                    content: "An error orcurred during execution of /set-welcome-message.  This error likely orcurred due to message being older than bot session. Please post a newer message. This command must also be executed in same channel as the original message.",
                     ephemeral: true,
                 });
                 return;

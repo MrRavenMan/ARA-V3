@@ -1,6 +1,7 @@
 
 const { Client, IntentsBitField } = require('discord.js');
 const eventHandler = require('./handlers/eventHandler.js')
+const { TOKEN } = require('./config/config.json');
 
 const client = new Client({
     intents: [
@@ -13,9 +14,8 @@ const client = new Client({
 });
 
 // Load Config
-const CONFIG = require('./config/config.json');
 
-client.login(CONFIG["TOKEN"])
+client.login(TOKEN)
 
 eventHandler(client);
 

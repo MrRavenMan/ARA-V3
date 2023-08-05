@@ -1,4 +1,4 @@
-const { TEST_SERVER_ID } = require('../../config/config.json')
+const { testServerID } = require('../../config/config.json')
 const getLocalCommands = require('../../utils/getLocalCommands.js')
 
 
