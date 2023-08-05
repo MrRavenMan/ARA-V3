@@ -1,6 +1,5 @@
 const { ApplicationCommandOptionType, PermissionFlagsBits } = require('discord.js')
 const { TOKEN, infoChannelID } = require('../../config/config.json');
-const infoEmbed = require('../../embeds/infoEmbed.js')
 
 module.exports = {
     name: 'restart',
@@ -24,7 +23,8 @@ module.exports = {
             client.destroy();
             console.log(`Executing /restart by ${interaction.user.username}#${interaction.user.discriminator}`)
             client.login(TOKEN);
-            client.channels.cache.get(infoChannelID).send({ embeds: [infoEmbed(`${client.user.tag} is now online after /restart by ${interaction.user.username}#${interaction.user.discriminator}.`)] })
+            console.log(`${client.user.tag} is now online after /restart by ${interaction.user.username}.`);
+            client.channels.cache.get(infoChannelID).send(`${client.user.tag} is now online after /restart by ${interaction.user.username}.`);
         } catch (error) {
             console.log(`An error orcurred during execution of  /restart. Error: ${error}`);
             interaction.reply({
