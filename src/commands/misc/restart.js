@@ -21,7 +21,7 @@ module.exports = {
             }, "5000");
                 
             client.destroy();
-            console.log(`Executing /restart by ${interaction.user.username}#${interaction.user.discriminator}`)
+            console.log(`Executing /restart by ${interaction.user.username}`)
             client.login(TOKEN);
             console.log(`${client.user.tag} is now online after /restart by ${interaction.user.username}.`);
             client.channels.cache.get(infoChannelID).send(`${client.user.tag} is now online after /restart by ${interaction.user.username}.`);

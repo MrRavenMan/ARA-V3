@@ -77,10 +77,10 @@ module.exports = {
             let message = "";
             if (!assign) {
                 targetUser.roles.remove(role);
-                message = `Role <@&${roleId}> was removed from ${targetUser.user.username}#${targetUser.user.discriminator}.`
+                message = `Role <@&${roleId}> was removed from ${targetUser.user.username}.`
             } else {
                 targetUser.roles.add(role);
-                message = `Role <@&${roleId}> was added to ${targetUser.user.username}#${targetUser.user.discriminator}.`
+                message = `Role <@&${roleId}> was added to ${targetUser.user.username}.`
             }
             interaction.reply({
                 content: message,

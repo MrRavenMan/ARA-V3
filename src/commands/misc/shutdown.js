@@ -1,6 +1,5 @@
 const { ApplicationCommandOptionType, PermissionFlagsBits } = require('discord.js')
 const { TOKEN, infoChannelID } = require('../../config/config.json');
-const infoEmbed = require('../../embeds/infoEmbed.js')
 
 module.exports = {
     name: 'shutdown',
