@@ -1,5 +1,5 @@
 const getLocalCommands = require('../../utils/getLocalCommands');
-const { guildID, botID, commandPermissions } = require('../../config/config.json');
+const { guildID, testGuildID } = require('../../config/config.json');
 const getApplicationCommands = require('../../utils/getApplicationCommands');
 const areCommandsDifferent = require('../../utils/AreCommandsDifferent.js')
 const { Application } = require('discord.js');
