@@ -4,11 +4,13 @@
     "BOT_ID": "1137013458643189880",
     "TEST_SERVER_ID": "950369844182806558",
     "status": 4,
-    "status_msg": "The Olympics",
-    "status_streaming_url": "https://www.twitch.tv/example",
+    "statusMsg": "The Olympics",
+    "statusUrl": "https://www.twitch.tv/example",
+    "welcomeMsg": "Welcome to the server!",
 
     "INFO_CHANNEL": "950372543079018547",
     "JOIN_LEAVE_CHANNEL": "950372543079018547",
+    
     "manage_all": "RoleNameOfRoleTOContoleAllCommands",
     "manage_test": "Role Name To Use This Command Only",
     "manage_close": "Role Name To Use This Command Only",

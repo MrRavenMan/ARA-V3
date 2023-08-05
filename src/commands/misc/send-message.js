@@ -38,13 +38,13 @@ module.exports = {
                 interaction.deleteReply();
                 }, "5000");
               
-            } catch (error) {
-                console.log(`An error orcurred during execution of /message. Error: ${error}. Error likely orccurred due to the message being older than the bot. `);
-                interaction.reply({
-                    content: "An error orcurred during execution of /message. This error likely orcurred due to message being older than bot session. Please post a newer message. This command must also be executed in same channel as the original message.",
-                    ephemeral: true,
-                });
-                return;
-            }
+        } catch (error) {
+            console.log(`An error orcurred during execution of /message. Error: ${error}. Error likely orccurred due to the message being older than the bot. `);
+            interaction.reply({
+                content: "An error orcurred during execution of /message. This error likely orcurred due to message being older than bot session. Please post a newer message. This command must also be executed in same channel as the original message.",
+                ephemeral: true,
+            });
+            return;
+        }
     },
 };
