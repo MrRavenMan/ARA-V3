@@ -25,16 +25,16 @@ module.exports = {
     callback: (client, interaction) => {
         try {
             const pinned = interaction.options.get("pinned").value;
-            const message_id = interaction.options.get("message-id").value;
+            const messageId = interaction.options.get("message-id").value;
 
             if (pinned) {
-                interaction.channel.messages.cache.get(message_id).pin( {reason: `Pinned by ${interaction.user.tag} using the /pin command`} );
+                interaction.channel.messages.cache.get(messageId).pin( {reason: `Pinned by ${interaction.user.tag} using the /pin command`} );
                 interaction.reply({
                     content: "Message was pinned",
                     ephemeral: true,
                 });
             } else {
-                interaction.channel.messages.cache.get(message_id).unpin( {reason: `Unpinned by ${interaction.user.tag} using the /pin command`} );
+                interaction.channel.messages.cache.get(messageId).unpin( {reason: `Unpinned by ${interaction.user.tag} using the /pin command`} );
                 interaction.reply({
                     content: "Message was unpinned",
                     ephemeral: true,
