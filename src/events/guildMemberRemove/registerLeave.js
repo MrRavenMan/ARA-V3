@@ -1,4 +1,4 @@
-const { joinLeaveChannelID, joinMessage } = require('../../config/config.json');
+const { joinLeaveChannelID } = require('../../config/config.json');
 const { userMention } = require('discord.js');
 
 module.exports = (client, user) => {
