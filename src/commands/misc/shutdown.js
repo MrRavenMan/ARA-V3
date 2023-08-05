@@ -5,7 +5,8 @@ const infoEmbed = require('../../embeds/infoEmbed.js')
 module.exports = {
     name: 'shutdown',
     description: 'Shut down the bot.',
-    botPermissions: [PermissionFlagsBits.ManageMessages],
+    permissionsRequired: [],
+    botPermissions: [],
     devOnly: false,
     testOnly: false,
     deleted: false,

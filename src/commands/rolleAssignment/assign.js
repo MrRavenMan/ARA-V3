@@ -24,8 +24,8 @@ module.exports = {
             type: ApplicationCommandOptionType.Boolean,
         }
     ],
-    permissionsRequired: [PermissionFlagsBits.Administrator],
-    botPermissions: [PermissionFlagsBits.Administrator],
+    permissionsRequired: [],
+    botPermissions: [PermissionFlagsBits.ManageRoles],
     devOnly: false,
     testOnly: false,
     deleted: false,

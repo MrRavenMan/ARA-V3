@@ -59,7 +59,6 @@ module.exports = async (client, interaction) => {
         
         let allowedMember = false;
         for (permissionGroup of commandPermissions[commandObject.name]) {
-            console.log(permissionGroup);
             if(interaction.member.roles.cache.find(role => role.id == permissionGroup)) {
                 allowedMember = true;
                 continue;

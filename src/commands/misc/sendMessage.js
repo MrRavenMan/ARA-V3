@@ -17,6 +17,7 @@ module.exports = {
             required: true,
         }
     ],
+    permissionsRequired: [],
     botPermissions: [PermissionFlagsBits.SendMessages, PermissionFlagsBits.ManageMessages],
     devOnly: false,
     testOnly: false,

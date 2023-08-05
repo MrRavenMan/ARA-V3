@@ -20,7 +20,7 @@ module.exports = {
         },
     ],
     permissionsRequired: [],
-    botPermissions: [PermissionFlagsBits.ManageRoles],
+    botPermissions: [PermissionFlagsBits.SendMessages],
     devOnly: false,
     testOnly: false,
     deleted: false,

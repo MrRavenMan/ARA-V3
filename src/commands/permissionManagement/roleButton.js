@@ -17,7 +17,8 @@ module.exports = {
             type: ApplicationCommandOptionType.Role,
         }
     ],
-    botPermissions: [PermissionFlagsBits.ManageRoles],
+    permissionsRequired: [],
+    botPermissions: [PermissionFlagsBits.SendMessages],
     devOnly: false,
     testOnly: false,
     deleted: false,

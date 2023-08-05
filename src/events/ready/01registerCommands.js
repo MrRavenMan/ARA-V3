@@ -1,5 +1,5 @@
 const getLocalCommands = require('../../utils/getLocalCommands');
-const { guildID, botID } = require('../../config/config.json');
+const { guildID, botID, commandPermissions } = require('../../config/config.json');
 const getApplicationCommands = require('../../utils/getApplicationCommands');
 const areCommandsDifferent = require('../../utils/AreCommandsDifferent.js')
 const { Application } = require('discord.js');
@@ -46,6 +46,7 @@ module.exports = async (client) => {
                 console.log(`Command /${name} was registered.`);
             };
         }
+
     } catch (error) {
         console.log(`There was an error: ${error}`)
     }
