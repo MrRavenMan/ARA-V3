@@ -3,7 +3,6 @@ const infoEmbed = require('../../embeds/infoEmbed.js')
 
 
 module.exports = (client) => {
-    console.log(`${client.user.tag} is now online at ${new Date().toISOString()}`);
     client.channels.cache.get(INFO_CHANNEL).send({ embeds: [infoEmbed(`${client.user.tag} is now online at ${new Date().toISOString()}`)] })
 };
 
