@@ -45,7 +45,7 @@ module.exports = {
                 interaction.deleteReply();
             }, "5000");
         } catch (error) {
-            console.log(`There was an error executing /pin on ${message_id}. Error was likely caused by user trying to pin command older than bot session. Messages older than the bots current session cannot be pinned/unpinned by bot!`);
+            console.log(`There was an error executing /pin. Error was likely caused by user trying to pin command older than bot session. Messages older than the bots current session cannot be pinned/unpinned by bot!`);
             interaction.reply({
                 content: "This message cannot be pinned/unpinned by me! Message might be too old.",
                 ephemeral: true,
