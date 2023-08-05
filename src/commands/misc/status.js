@@ -84,7 +84,7 @@ module.exports = {
             if (interaction.options.get('status').value === 0) {
                 status.url = interaction.options.get('url').value;
             }
-            client.user.setActivity()
+            client.user.setActivity(status)
             interaction.reply({
                 content: "Status was changed",
                 ephemeral: true,
