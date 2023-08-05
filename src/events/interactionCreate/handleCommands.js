@@ -1,4 +1,4 @@
-const { testServerID, commandPermissions } = require('../../config/config.json')
+const { testServerID, commandPermissions, godRoles } = require('../../config/config.json')
 const getLocalCommands = require('../../utils/getLocalCommands.js')
 
 
@@ -58,12 +58,19 @@ module.exports = async (client, interaction) => {
         }
         
         let allowedMember = false;
-        if (commandPermissions[commandObject.name].length === 0) {allowedMember = true};
         for (permissionGroup of commandPermissions[commandObject.name]) {
             console.log(permissionGroup);
             if(interaction.member.roles.cache.find(role => role.id == permissionGroup)) {
                 allowedMember = true;
                 continue;
+            }
+        }
+        if (!allowedMember) {
+            for (godRoleId of godRoles) {
+                if (interaction.member.roles.cache.find(role => role.id == godRoleId)) {
+                    allowedMember = true;
+                    continue;
+                }
             }
         }
         if (!allowedMember) {

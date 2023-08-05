@@ -29,9 +29,9 @@ module.exports = {
                 interaction.deleteReply();
                 }, "5000");
         } catch (error) {
-            console.log(`There was an error executing /status.`);
+            console.log(`An error orcurred during execution of /status. Error: ${error}`);
             interaction.reply({
-                content: "Error executing /status command.",
+                content: "An error orcurred during execution of /status.",
                 ephemeral: true,
             });
         }

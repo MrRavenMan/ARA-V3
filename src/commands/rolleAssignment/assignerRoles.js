@@ -20,36 +20,47 @@ module.exports = {
     deleted: false,
 
     callback: (client, interaction) => {
-        // Load config file
-        const basePath = path.resolve(__dirname, '../..')
-        const fileName = basePath + '/config/config.json';
-        console.log(fileName)
-        const file = require(fileName);
+        try {
+            // Load config file
+            const basePath = path.resolve(__dirname, '../..')
+            const fileName = basePath + '/config/config.json';
+            const file = require(fileName);
 
-        const assignerRoleId = interaction.guild.roles.cache.get(interaction.options.get("assigner-role").value).id.toString();
-        
-        if (file.assignPairs[assignerRoleId] === undefined) {
+            const assignerRoleId = interaction.guild.roles.cache.get(interaction.options.get("assigner-role").value).id.toString();
+            
+            if (file.assignPairs[assignerRoleId] === undefined) {
+                interaction.reply({
+                    content: `<@&${assignerRoleId}> does not hold permissions to assign/unassign any roles`,
+                    ephemeral: true,
+                });
+                setTimeout(() => {
+                    interaction.deleteReply();
+                }, "5000");
+            };
+
+            let message = `<@&${assignerRoleId}> can assign/unassign the roles of; `;
+            for (roleId of file.assignPairs[assignerRoleId]) {
+                message = message + `<@&${roleId}> `
+            };
+            message = message + " to other users. "
             interaction.reply({
-                content: `<@&${assignerRoleId}> does not hold permissions to assign/unassign any roles`,
+                content: message,
                 ephemeral: true,
             });
             setTimeout(() => {
                 interaction.deleteReply();
             }, "5000");
-        };
-
-        let message = `<@&${assignerRoleId}> can assign/unassign the roles of; `;
-        for (roleId of file.assignPairs[assignerRoleId]) {
-            message = message + `<@&${roleId}> `
-        };
-        message = message + " to other users. "
-        interaction.reply({
-            content: message,
-            ephemeral: true,
-        });
-        setTimeout(() => {
-            interaction.deleteReply();
-        }, "5000");
+        } catch (error) {
+            console.log(`An error orcurred during execution of  /assigner-roles. Error: ${error}`);
+            interaction.reply({
+                content: "An error orcurred during execution of /assigner-roles.",
+                ephemeral: true,
+            });
+            setTimeout(() => {
+                interaction.deleteReply();
+            }, "5000");
+        }
+        
         
     },
 };

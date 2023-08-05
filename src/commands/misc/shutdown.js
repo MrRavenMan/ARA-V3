@@ -11,15 +11,27 @@ module.exports = {
     deleted: false,
 
     callback: (client, interaction) => {
-        interaction.reply({
-            content: `Shooting down the bot!`,
-            ephemeral: true,
-        });
-        setTimeout(() => {
-            interaction.deleteReply();
+        try {
+            interaction.reply({
+                content: `Shooting down the bot!`,
+                ephemeral: true,
+            });
+            setTimeout(() => {
+                interaction.deleteReply();
             }, "5000");
-            
-        client.destroy();
-        console.log(`Bot stopped by /shutdown by ${interaction.user.username}#${interaction.user.discriminator}`)
+                
+            client.destroy();
+            console.log(`Bot stopped by /shutdown by ${interaction.user.username}#${interaction.user.discriminator}`)
+        } catch (error) {
+            console.log(`An error orcurred during execution of  /shutdown. Error: ${error}`);
+            interaction.reply({
+                content: "An error orcurred during execution of /shutdown.",
+                ephemeral: true,
+            });
+            setTimeout(() => {
+                interaction.deleteReply();
+            }, "5000");
+        }
+        
     },
 };

@@ -9,7 +9,7 @@ module.exports = {
     options: [
         {
             name: 'message',
-            description: 'The id of the message you wish the bot to use as a welocme message.',
+            description: 'The id of the message you wish the bot to use as a welcome message.',
             type: ApplicationCommandOptionType.String,
             required: true,
         }
@@ -30,13 +30,11 @@ module.exports = {
 
             const basePath = path.resolve(__dirname, '../..')
             const fileName = basePath + '/config/config.json';
-            console.log(fileName)
             const file = require(fileName);
             file.welcomeMsg = targetMessage.content;
             fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
             if (err) return console.log(err);
-            console.log(JSON.stringify(file));
-            console.log('writing to ' + fileName);
+            console.log('Wrting to file:  ' + fileName);
             });
 
             targetMessage.delete();

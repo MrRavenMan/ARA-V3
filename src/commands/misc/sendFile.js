@@ -39,6 +39,9 @@ module.exports = {
                 content: "An error orcurred during execution of /send-file.",
                 ephemeral: true,
             });
+            setTimeout(() => {
+                interaction.deleteReply();
+            }, "5000");
             return;
         }
     },

@@ -8,5 +8,8 @@ module.exports = {
 
     callback: (client, interaction) => {
         interaction.reply(`Pong! ${client.ws.ping}ms`);
+        setTimeout(() => {
+            interaction.deleteReply();
+        }, "5000");
     },
 };

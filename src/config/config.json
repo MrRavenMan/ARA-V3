@@ -6,10 +6,11 @@
   "status": 4,
   "statusMsg": "The Olympics",
   "statusUrl": "https://www.twitch.tv/example",
-  "welcomeMsg": "This is a test",
+  "welcomeMsg": "safa",
   "infoChannelID": "950372543079018547",
   "joinLeaveChannelID": "950372543079018547",
   "developers": [],
+  "godRoles": [950370697736232972],
   "commandPermissions": {
     "ping": [950376609515442200, 981890030857498600],
     "set-welcome-message": [],
@@ -26,7 +27,5 @@
     "assigner-roles-add": [],
     "assigner-roles-remove": []
   },
-  "assignPairs": {
-    "950376609515442217": ["950371000715993168", "950370979094347786"]
-  }
+  "assignPairs": { "950376609515442217": ["950371000715993168"] }
 }
