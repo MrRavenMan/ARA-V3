@@ -3,14 +3,13 @@ const getLocalCommands = require('../../utils/getLocalCommands.js')
 
 
 module.exports = async (client, interaction) => {
-    console.log(`Interaction: ${interaction}`)
     if (!interaction.isChatInputCommand()) return;
 
     const localCommands = getLocalCommands();
 
     try {
         const commandObject = localCommands.find((cmd) => cmd.name === interaction.commandName);
-
+        
         if (!commandObject) return;
         if (commandObject.devOnly) {
             if (!devs.includes(interaction.member.id)) {

@@ -1,5 +1,7 @@
+const { userMention } = require('discord.js');
+
 module.exports = (user) => {
-    var message = `${user.username}#${user.discriminator} - ID: ${user.id} has joined the server`;
+    var message = `${userMention(user.id)} has joined the server`;
     console.log(message);
     console.log(user);
 

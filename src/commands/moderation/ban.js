@@ -21,9 +21,10 @@ module.exports = {
     botPermissions: [PermissionFlagsBits.Administrator],
     devOnly: false,
     testOnly: false,
-    deleted: false,
+    deleted: true,
 
     callback: (client, interaction) => {
+        const targetUser = interaction.guild.members.cache.get(interaction.options.get("target-user").value);
         console.log("ban");
     },
 };
