@@ -1,4 +1,4 @@
-const { joinLeaveChannelID } = require('../../config/config.json')
+const { joinLeaveChannelID, userMention } = require('../../config/config.json')
 
 module.exports = (client, user) => {
     console.log(`${user.tag} has left the server at ${new Date().toISOString()}`);
