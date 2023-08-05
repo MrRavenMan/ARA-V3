@@ -1,7 +1,7 @@
 const { ApplicationCommandOptionType, PermissionFlagsBits } = require('discord.js')
 
 module.exports = {
-    name: 'status',
+    name: 'set-status',
     description: 'Set status of bot.',
     options: [
         {

@@ -1,4 +1,4 @@
-const { testServerID } = require('../../config/config.json')
+const { testServerID, commandPermissions } = require('../../config/config.json')
 const getLocalCommands = require('../../utils/getLocalCommands.js')
 
 
@@ -11,6 +11,7 @@ module.exports = async (client, interaction) => {
         const commandObject = localCommands.find((cmd) => cmd.name === interaction.commandName);
         
         if (!commandObject) return;
+
         if (commandObject.devOnly) {
             if (!devs.includes(interaction.member.id)) {
                 interaction.reply({
@@ -55,6 +56,23 @@ module.exports = async (client, interaction) => {
                 }
             }
         }
+        
+        let allowedMember = false;
+        if (commandPermissions[commandObject.name].length === 0) {allowedMember = true};
+        for (permissionGroup of commandPermissions[commandObject.name]) {
+            console.log(permissionGroup);
+            if(interaction.member.roles.cache.find(role => role.id == permissionGroup)) {
+                allowedMember = true;
+                continue;
+            }
+        }
+        if (!allowedMember) {
+            interaction.reply({
+                content: "You are not allowed to use this command.",
+                ephemeral: true,
+            });
+            return;
+        };
 
         await commandObject.callback(client, interaction);
     } catch (error) {

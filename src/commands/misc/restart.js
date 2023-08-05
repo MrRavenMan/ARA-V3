@@ -17,7 +17,7 @@ module.exports = {
         });
         setTimeout(() => {
             interaction.deleteReply();
-            }, "5000");
+        }, "5000");
             
         client.destroy();
         console.log(`Executing /restart by ${interaction.user.username}#${interaction.user.discriminator}`)
