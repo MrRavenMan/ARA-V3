@@ -4,7 +4,7 @@ const fs = require('fs');
 
 module.exports = {
     name: 'assigner-roles-add',
-    description: 'Set what roles a role may assign. ',
+    description: 'Add a role which may assign/unassign specific roles. ',
     options: [
         {
             name: 'assigner-role',
