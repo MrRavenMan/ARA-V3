@@ -1,21 +1,17 @@
 {
-  "TOKEN": "MTEzNzAxMzQ1ODY0MzE4OTg4MA.Gql9oS.GfctHLMUr3mY1iERF-viDekMilHT36KsVo3CtA",
-  "guildID": "950369844182806558",
-  "botID": "1137013458643189880",
-  "testServerID": "950369844182806558",
+  "TOKEN": "XXXXXXX",
+  "guildID": "XXXXXX",
+  "botID": "XXXXXXX",
   "status": 4,
   "statusMsg": "The Olympics",
   "statusUrl": "https://www.twitch.tv/example",
-  "welcomeMsg": "safa",
-  "infoChannelID": "950372543079018547",
-  "joinLeaveChannelID": "950372543079018547",
+  "welcomeMsg": "Welcome to the server!",
+  "infoChannelID": "XXXXXX",
+  "joinLeaveChannelID": "XXXXXXX",
   "developers": [],
-  "godRoles": [950370697736233000],
+  "godRoles": [123456789],
   "commandPermissions": {
-    "command-permissions": [],
-    "command-permissions-add": [],
-    "command-permissions-remove": [],
-    "ping": ["950376609515442217"],
+    "ping": [],
     "set-welcome-message": [],
     "set-status": [],
     "shutdown": [],
@@ -30,5 +26,5 @@
     "assigner-roles-add": [],
     "assigner-roles-remove": []
   },
-  "assignPairs": { "950376609515442217": ["950371000715993168"] }
+  "assignPairs": {}
 }

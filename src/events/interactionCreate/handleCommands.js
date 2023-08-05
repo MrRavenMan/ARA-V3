@@ -58,12 +58,15 @@ module.exports = async (client, interaction) => {
         }
         
         let allowedMember = false;
-        for (permissionGroup of commandPermissions[commandObject.name]) {
-            if(interaction.member.roles.cache.find(role => role.id == permissionGroup)) {
-                allowedMember = true;
-                continue;
+        if (!commandObject.name.includes("command-permissions")) {
+            for (permissionGroup of commandPermissions[commandObject.name]) {
+                if(interaction.member.roles.cache.find(role => role.id == permissionGroup)) {
+                    allowedMember = true;
+                    continue;
+                }
             }
         }
+        
         if (!allowedMember) {
             for (godRoleId of godRoles) {
                 if (interaction.member.roles.cache.find(role => role.id == godRoleId)) {
