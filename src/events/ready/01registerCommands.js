@@ -1,5 +1,5 @@
 const getLocalCommands = require('../../utils/getLocalCommands');
-const { guildID, testGuildID } = require('../../config/config.json');
+const { guildIDs, testGuildID } = require('../../config/config.json');
 const getApplicationCommands = require('../../utils/getApplicationCommands');
 const areCommandsDifferent = require('../../utils/AreCommandsDifferent.js')
 const { Application } = require('discord.js');
@@ -8,7 +8,10 @@ module.exports = async (client) => {
     const localCommands = getLocalCommands();    
     try {
         const localCommands = getLocalCommands();
-        const ApplicationCommands = await getApplicationCommands(client, guildID)
+
+        const activeGuilds = guildIDs.push(testGuildID);
+        for (guildID of activeGuilds) {
+            const ApplicationCommands = await getApplicationCommands(client, guildID)
 
         for (const localCommand of localCommands) {
             const { name, description, options } = localCommand;
@@ -20,7 +23,7 @@ module.exports = async (client) => {
             if (existingCommand) {
                 if (localCommand.deleted) {
                     await ApplicationCommands.delete(existingCommand.id);
-                    console.log(`Deleted command /${name}. `);
+                    console.log(`Deleted command /${name} for guild-ID: ${guildID}.`);
                     continue;
                 }
 
@@ -30,7 +33,7 @@ module.exports = async (client) => {
                         options,
                     });
 
-                    console.log(`Edited command /${name}. `);
+                    console.log(`Edited command /${name} for guild-ID: ${guildID}.`);
                 }
             } else {
                 if (localCommand.deleted) {
@@ -43,8 +46,9 @@ module.exports = async (client) => {
                     description,
                     options,
                 })
-                console.log(`Command /${name} was registered.`);
+                console.log(`Command /${name} was registered for guild-ID: ${guildID}.`);
             };
+            }
         }
 
     } catch (error) {

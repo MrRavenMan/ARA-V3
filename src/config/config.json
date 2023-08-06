@@ -1,13 +1,14 @@
 {
-    "TOKEN": "MTEzNzAxMzQ1ODY0MzE4OTg4MA.GFHPKR.usdnSr5ofMLjDDdmRMpM_8wTLiDMEzZb8wV08E",
-    "guildID": "950369844182806558",
-    "botID": "1137013458643189880",
-    "status": 4,
+    "TOKEN": "XXXXXXXXX",
+    "guildIDs": "XXXXXX",
+    "testGuildID": "XXXXXXX",
+    "botID": "XXXXXXXX",
+    "status": 1,
     "statusMsg": "The Olympics",
     "statusUrl": "https://www.twitch.tv/example",
     "welcomeMsg": "Welcome to the server!",
-    "infoChannelID": "950372543079018547",
-    "joinLeaveChannelID": "950372543079018547",
+    "infoChannelID": "XXXXXXX",
+    "joinLeaveChannelID": "XXXXXXX",
     "developers": [],
     "godRoles": [
         950370697736233000
