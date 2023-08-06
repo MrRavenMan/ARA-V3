@@ -17,7 +17,6 @@ module.exports = {
             type: ApplicationCommandOptionType.Role,
         }
     ],
-    permissionsRequired: [],
     botPermissions: [PermissionFlagsBits.SendMessages],
     devOnly: false,
     testOnly: false,
@@ -42,7 +41,7 @@ module.exports = {
                     .setStyle(ButtonStyle.Danger)
             );
             targetChannel.send({
-                content: `**This role is for the <@&${role.id}> of the community.**`,
+                content: `Here you can assign/unassign the **${role.name}** role.`,
                 components: [row]
             })
             

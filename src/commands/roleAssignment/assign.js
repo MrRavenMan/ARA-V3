@@ -43,8 +43,6 @@ module.exports = {
                 if(interaction.member.roles.cache.find(role => role.id == assignerRoleId)) {
                     allowedMember = true;
                     for (assignableRoleId of assignPairs[assignerRoleId]) {
-                        console.log(assignableRoleId, roleId)
-                        console.log(assignableRoleId === roleId)
                         if (assignableRoleId === roleId) {
                             allowedRole = true;
                             continue;
@@ -86,6 +84,7 @@ module.exports = {
                 content: message,
                 ephemeral: true,
             });
+            console.log(message);
             setTimeout(() => {
                 interaction.deleteReply();
             }, "5000");

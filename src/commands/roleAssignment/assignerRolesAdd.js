@@ -3,8 +3,8 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = {
-    name: 'assigner-roles-remove',
-    description: 'Remove a role which a role may assign. ',
+    name: 'assigner-roles-add',
+    description: 'Add a role which may assign/unassign specific roles. ',
     options: [
         {
             name: 'assigner-role',
@@ -13,8 +13,8 @@ module.exports = {
             type: ApplicationCommandOptionType.Mentionable,
         },
         {
-            name: 'disallowed-role',
-            description: 'The role which the assigner-role may no longer assign to other users.',
+            name: 'allowed-role',
+            description: 'The role which the assigner-role may assign to other users.',
             required: true,
             type: ApplicationCommandOptionType.Role,
         }
@@ -33,30 +33,20 @@ module.exports = {
             const file = require(fileName);
 
             const assignerRoleId = interaction.guild.roles.cache.get(interaction.options.get("assigner-role").value).id.toString();
-            const disAllowedRoleId = interaction.guild.roles.cache.get(interaction.options.get("disallowed-role").value).id;
-            
+            const allowedRoleId = interaction.guild.roles.cache.get(interaction.options.get("allowed-role").value).id;
             if (file.assignPairs.hasOwnProperty(assignerRoleId)) {
-                const index = file.assignPairs[assignerRoleId].indexOf(disAllowedRoleId);
-                file.assignPairs[assignerRoleId].splice(index, 1);
+                if (!file.assignPairs[assignerRoleId].includes(allowedRoleId)) {
+                    file.assignPairs[assignerRoleId].push(allowedRoleId);
+                }
             } else {
-                interaction.reply({
-                    content: `<@&${assignerRoleId}> does already not hold permissions to assign/unassign the  <@&${disAllowedRoleId}> role.`,
-                    ephemeral: true,
-                });
-                setTimeout(() => {
-                    interaction.deleteReply();
-                }, "5000");
-                return
+                file.assignPairs[assignerRoleId] = [allowedRoleId];
             }
             
             // Save config file
             fs.writeFile(fileName, JSON.stringify(file, null, 4), function writeJSON(err) {
             if (err) return console.log(err);
-            console.log(JSON.stringify(file, null, 4));
             console.log('Wrting to file:  ' + fileName);
             });
-
-            
 
             let message = `<@&${assignerRoleId}> can now assign/unassign the roles of; `;
             for (roleId of file.assignPairs[assignerRoleId]) {
@@ -71,15 +61,14 @@ module.exports = {
                 interaction.deleteReply();
             }, "5000");
         } catch (error) {
-            console.log(`An error orcurred during execution of /assigner-roles-remove. Error: ${error}`);
+            console.log(`An error orcurred during execution of /assigner-roles-add. Error: ${error}`);
             interaction.reply({
-                content: "An error orcurred during execution of /assigner-roles-remove.",
+                content: "An error orcurred during execution of /assigner-roles-add.",
                 ephemeral: true,
             });
             setTimeout(() => {
                 interaction.deleteReply();
             }, "5000");
         }
-        
     },
 };
