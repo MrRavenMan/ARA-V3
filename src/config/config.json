@@ -1,17 +1,14 @@
 {
-    "TOKEN": "XXXXXXXXX",
-    "guildIDs": "XXXXXX",
-    "testGuildID": "XXXXXXX",
+    "TOKEN": "XXXXXXXX",
+    "guildIDs": ["XXXXXXXX"],
+    "testGuildID": "XXXXXXXX",
     "botID": "XXXXXXXX",
-    "status": 1,
-    "statusMsg": "The Olympics",
-    "statusUrl": "https://www.twitch.tv/example",
     "welcomeMsg": "Welcome to the server!",
-    "infoChannelID": "XXXXXXX",
-    "joinLeaveChannelID": "XXXXXXX",
+    "infoChannelID": "XXXXXXXX",
+    "joinLeaveChannelID": "XXXXXXXX",
     "developers": [],
     "godRoles": [
-        950370697736233000
+        123456789
     ],
     "commandPermissions": {
         "ping": [],
@@ -22,7 +19,7 @@
         "send-file": [],
         "send-message": [],
         "pin": [
-            "950370979094347786"
+            "123456789"
         ],
         "ban": [],
         "assign": [],
@@ -31,9 +28,5 @@
         "assigner-roles-add": [],
         "assigner-roles-remove": []
     },
-    "assignPairs": {
-        "950376609515442217": [
-            "950371000715993168"
-        ]
-    }
+    "assignPairs": {}
 }

@@ -9,7 +9,8 @@ module.exports = async (client) => {
     try {
         const localCommands = getLocalCommands();
 
-        const activeGuilds = guildIDs.push(testGuildID);
+        const activeGuilds = guildIDs;
+        activeGuilds.push(testGuildID);
         for (guildID of activeGuilds) {
             const ApplicationCommands = await getApplicationCommands(client, guildID)
 

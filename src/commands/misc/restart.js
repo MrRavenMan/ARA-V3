@@ -24,7 +24,7 @@ module.exports = {
             console.log(`Executing /restart by ${interaction.user.username}`)
             client.login(TOKEN);
             console.log(`${client.user.tag} is now online after /restart by ${interaction.user.username}.`);
-            client.channels.cache.get(infoChannelID).send(`${client.user.tag} is now online after /restart by ${interaction.user.username}.`);
+            client.channels.cache.get(infoChannelID).send(`**${client.user.tag}** is now **online** after /restart by ${interaction.user.username}.`);
         } catch (error) {
             console.log(`An error orcurred during execution of  /restart. Error: ${error}`);
             interaction.reply({
